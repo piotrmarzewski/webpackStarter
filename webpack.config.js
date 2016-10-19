@@ -130,7 +130,7 @@ if (LINTER) {
   preLoaders.push({
     test: /\.js$/,
     exclude: /node_modules/,
-    loader: 'eslint-loader'
+    loader: 'standard-loader'
   });
 }
 else {
@@ -195,6 +195,6 @@ const config = {
     net: 'empty',
     tls: 'empty'
   }
-};
+}
 
 module.exports = config;
