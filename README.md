@@ -1,32 +1,27 @@
 Webpack Babel Starter
 =====================
 
-[![Build Status](https://travis-ci.org/topheman/webpack-babel-starter.svg?branch=master)](https://travis-ci.org/topheman/webpack-babel-starter)
-
 A webpack starter kit with full development & build workflow, inspired by [topheman/react-es6-redux](https://github.com/topheman/react-es6-redux).
 
 What's in this boilerplate:
 
 * Development / Build / Lint tasks
 * [Babel](https://babeljs.io/) transpiler
-* [Eslint](http://eslint.org/) / [babel-eslint](https://github.com/babel/babel-eslint) / [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/eslint-config-airbnb-v5.0.1/packages/eslint-config-airbnb)
+* [Standard style](http://http://standardjs.com/)
 * Sass support
-* Ship a version of your site with sourcemaps (see demo)
 
 Already in use in the following projects:
 
 * [topheman/rxjs-experiments](https://github.com/topheman/rxjs-experiments) (RxJS)
-* [topheman/react-es6-redux](https://github.com/topheman/react-es6-redux) (React/Redux/Github Api) - since [v3.0.0](https://github.com/topheman/react-es6-redux/releases/tag/v3.0.0) 
+* [topheman/react-es6-redux](https://github.com/topheman/react-es6-redux) (React/Redux/Github Api) - since [v3.0.0](https://github.com/topheman/react-es6-redux/releases/tag/v3.0.0)
 * [topheman/d3-react-experiments](https://github.com/topheman/d3-react-experiments) (React/d3)
-
-I also have ported it on [topheman/angular2-sandbox](https://github.com/topheman/angular2-sandbox) to be used the same way in an Angular2 / TypeScript project.
 
 ###Install
 
 ```shell
 git clone https://github.com/topheman/webpack-babel-starter.git
 cd webpack-babel-starter
-npm install
+yarn install
 ```
 
 ###Run
@@ -93,11 +88,6 @@ Check the source code of the html/js/css generated files, you'll see a banner co
 * version
 * git revision / link to this revision on github
 
-###Contributing
-
-PRs are welcome, just keep in mind this boilerplate aims to keep beeing framework agnostic.
-
-Everything related to contributing (tests, framework dependencies ...) is located in the [/contributing](https://github.com/topheman/webpack-babel-starter/tree/master/contributing) folder. Check the readme in there to see how to setup your workspace.
 
 Copyright 2016 © Christophe Rosset
 

@@ -5,7 +5,7 @@
   "scripts": {
     "start": "npm run webpack",
     "test": "npm run lint",
-    "lint": "./node_modules/.bin/eslint src",
+    "lint": "./node_modules/.bin/standard src",
     "clean-dist": "node ./bin/clean-dist.js",
     "serve-build": "echo 'Serving distribution folder build/dist' && npm run serve-dist",
     "serve-dist": "./node_modules/.bin/serve build/dist",
@@ -28,17 +28,17 @@
     "Babel",
     "ES6",
     "Sass",
-    "Eslint",
+    "Standard",
     "Starter Kit",
     "boilerplate"
   ],
-  "author": "Christophe Rosset <tophe@topheman.com> (http://labs.topheman.com/)",
+  "author": "Piotr Marzewski",
   "repository": {
     "type": "git",
-    "url": "https://github.com/topheman/webpack-babel-starter.git"
+    "url": ""
   },
   "bugs": {
-    "url": "https://github.com/topheman/webpack-babel-starter/issues"
+    "url": ""
   },
   "license": "MIT",
   "devDependencies": {
