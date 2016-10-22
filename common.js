@@ -1,16 +1,16 @@
 /**
  * Inspired by https://github.com/topheman/react-es6-redux
  */
-'use strict';
-function getRootDir() {
-  return __dirname;
+'use strict'
+function getRootDir () {
+  return __dirname
 }
 
-function getInfos() {
-  const gitActive = projectIsGitManaged();
-  const gitRev = require('git-rev-sync');
-  const moment = require('moment');
-  const pkg = require('./package.json');
+function getInfos () {
+  const gitActive = projectIsGitManaged()
+  const gitRev = require('git-rev-sync')
+  const moment = require('moment')
+  const pkg = require('./package.json')
   const infos = {
     pkg: pkg,
     today: moment(new Date()).format('DD/MM/YYYY'),
@@ -19,9 +19,9 @@ function getInfos() {
     gitRevisionLong: gitActive ? gitRev.long() : null,
     author: (pkg.author && pkg.author.name) ? pkg.author.name : (pkg.author || null),
     urlToCommit: null
-  };
-  infos.urlToCommit = gitActive ? _getUrlToCommit(pkg, infos.gitRevisionLong) : null;
-  return infos;
+  }
+  infos.urlToCommit = gitActive ? _getUrlToCommit(pkg, infos.gitRevisionLong) : null
+  return infos
 }
 
 /**
@@ -30,8 +30,8 @@ function getInfos() {
  * @param {String} mode default/formatted
  * @returns {String}
  */
-function getBanner(mode) {
-  const infos = getInfos();
+function getBanner (mode) {
+  const infos = getInfos()
   const compiled = [
     infos.pkg.name,
     '',
@@ -43,53 +43,53 @@ function getBanner(mode) {
     `@copyright ${infos.year}(c)` + (infos.author !== null ? ` ${infos.author}` : ''),
     (infos.pkg.license ? `@license ${infos.pkg.license}` : ''),
     ''
-  ].join(mode === 'formatted' ? '\n * ' : '\n');
-  return compiled;
+  ].join(mode === 'formatted' ? '\n * ' : '\n')
+  return compiled
 }
 
-function getBannerHtml() {
-  return '<!--\n * \n * ' + getBanner('formatted') + '\n-->\n';
+function getBannerHtml () {
+  return '<!--\n * \n * ' + getBanner('formatted') + '\n-->\n'
 }
 
-function projectIsGitManaged() {
-  const fs = require('fs');
-  const path = require('path');
+function projectIsGitManaged () {
+  const fs = require('fs')
+  const path = require('path')
   try {
     // Query the entry
-    const stats = fs.lstatSync(path.join(__dirname,'.git'));
+    const stats = fs.lstatSync(path.join(__dirname, '.git'))
 
     // Is it a directory?
     if (stats.isDirectory()) {
-      return true;
+      return true
     }
-    return false;
+    return false
   }
   catch (e) {
-    return false;
+    return false
   }
 }
 
-function _getUrlToCommit(pkg, gitRevisionLong){
-  let urlToCommit = null;
+function _getUrlToCommit (pkg, gitRevisionLong) {
+  let urlToCommit = null
   // if no repository return null
   if (typeof pkg.repository === 'undefined') {
-    return urlToCommit;
+    return urlToCommit
   }
-  //retrieve and reformat repo url from package.json
-  if (typeof(pkg.repository) === 'string') {
-    urlToCommit = pkg.repository;
+  // retrieve and reformat repo url from package.json
+  if (typeof (pkg.repository) === 'string') {
+    urlToCommit = pkg.repository
   }
-  else if (typeof(pkg.repository.url) === 'string') {
-    urlToCommit = pkg.repository.url;
+  else if (typeof (pkg.repository.url) === 'string') {
+    urlToCommit = pkg.repository.url
   }
-  //check that there is a git repo specified in package.json & it is a github one
+  // check that there is a git repo specified in package.json & it is a github one
   if (urlToCommit !== null && /^https:\/\/github.com/.test(urlToCommit)) {
-    urlToCommit = urlToCommit.replace(/.git$/, '/tree/' + gitRevisionLong);//remove the .git at the end
+    urlToCommit = urlToCommit.replace(/.git$/, '/tree/' + gitRevisionLong)// remove the .git at the end
   }
-  return urlToCommit;
+  return urlToCommit
 }
 
-module.exports.getRootDir = getRootDir;
-module.exports.getInfos = getInfos;
-module.exports.getBanner = getBanner;
-module.exports.getBannerHtml = getBannerHtml;
+module.exports.getRootDir = getRootDir
+module.exports.getInfos = getInfos
+module.exports.getBanner = getBanner
+module.exports.getBannerHtml = getBannerHtml
